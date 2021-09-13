@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3840957211.js" crossorigin="anonymous"></script>
+    <title>To Do List</title>
+    <style>
+        #heading .container .row ol li:hover {
+            background-color: #cecece;
+            cursor: pointer;
+        }
+        
+        #heading .container .row ol li .badge {
+            color: black;
+        }
+        
+        #heading .container .row ol li .badge:hover {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="heading">
+        <!-- Toast Start -->
+        <div class="position-fixed top-0 end-0 p-2" style="z-index: 11; width: 300px;">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto" id="toastIn"></strong>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <!-- Toast End -->
+        <div class="container ">
+            <!-- Main Top Start -->
+            <div class="row bg-warning p-4 justify-content-center">
+                <img class="bg-light" style="width:300px;" src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png" alt="">
+                <h1 class="text-center text-light">Yapılacaklar Listesi</h1>
+                <div class="input-group mb-3 input-group-lg">
+                    <input id="myInput" type="text" class="form-control" placeholder="Bugün ne yapacaksınız?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <span class="input-group-text ps-5 pe-5" id="basic-addon2" type="button" onclick="addItem(), trig(), document.getElementById('myInput').value = ''">Ekle</span>
+                </div>
+            </div>
+            <!-- Main Top End -->
+            <!-- List Start -->
+            <div class="row">
+                <ol id="allLi" class="list-group list-group-numbered p-0 m-0" style="list-style: none;">
+                    <li class="close list-group-item p-3 d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold" style="font-size: 18px;">Duş alınacak.</div>
+                        </div>
+                        <span onclick="removeFixedItems()" class=" badge rounded-pill p-2" type="button">
+                            <i class="fas fa-times" id="icon"></i>
+                        </span>
+                    </li>
+                    <li class="close list-group-item p-3 d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold" style="font-size: 18px;">Kahvaltı Yapılacak.</div>
+                        </div>
+                        <span onclick="removeFixedItems()" class="badge rounded-pill p-2" type="button">
+                            <i class="fas fa-times" id="icon"></i>
+                        </span>
+                    </li>
+                    <li class=" close list-group-item p-3 d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold" style="font-size: 18px;">Markete gidilecek.</div>
+                        </div>
+                        <span onclick="removeFixedItems()" class="badge rounded-pill p-2" type="button">
+                            <i class="fas fa-times" id="icon"></i>
+                        </span>
+                    </li>
+                    <li class="close list-group-item p-3 d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold" style="font-size: 18px;">Süt alınacak.</div>
+                        </div>
+                        <span onclick="removeFixedItems()" class="badge rounded-pill p-2" type="button">
+                            <i class="fas fa-times" id="icon"></i>
+                        </span>
+                    </li>
+                </ol>
+            </div>
+            <!-- List End -->
+        </div>
+    </header>
+    <script src="script.js"></script>
+</body>
+
+</html>
